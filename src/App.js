@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import FetbackButton from './Fetback/FetbakButton'
-import Statistic from './Fetback/Statistic'
+import FetbackButton from './Components/FetbakButton'
+import Statistic from './Components/Statistic'
 
  class App extends Component{
     state = {
@@ -13,7 +13,7 @@ import Statistic from './Fetback/Statistic'
             [fetback]: prevState.[fetback] +1
      
         }))   
-        this.procentFetback() 
+         
     }
     procentFetback  = () => {
         const result = this.state.good / (this.state.good + this.state.bad) * 100 ;
@@ -26,12 +26,15 @@ import Statistic from './Fetback/Statistic'
        
     }
      render(){
+         const {good, neutral, bad} = this.state
          return(
              <div>
+                 
                  <h1>Оставьте свой отзыв</h1>
                  <FetbackButton options={this.state} incriment={this.incrimentFetback} />
+                 {(good > 0 || neutral > 0 || bad > 0) ? <div>
                  <h2>Статистика</h2>
-                 <Statistic options={this.state} procentFetback={this.procentFetback}/> 
+                 <Statistic options={this.state} procentFetback={this.procentFetback}/></div> : null}
              </div> 
          )
      }
