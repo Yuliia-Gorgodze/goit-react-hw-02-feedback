@@ -5,6 +5,7 @@ const Statistic = ({options, procentFetback}) => {
     const nameFetback = Object.keys(options);
  return (
   <div>
+    <h2>Статистика</h2>
    <ul>
     {nameFetback.map(fetback => <li key={fetback} >{fetback} : {options[fetback]}</li>)}
    </ul>

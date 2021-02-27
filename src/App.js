@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import FetbackButton from './Components/FetbakButton'
+
 import Statistic from './Components/Statistic'
+import Notification from './Components/Notification'
+import SectionTitle from './Components/SectionTitle'
 
  class App extends Component{
     state = {
@@ -26,15 +28,12 @@ import Statistic from './Components/Statistic'
        
     }
      render(){
-         const {good, neutral, bad} = this.state
+        const {good, neutral, bad} = this.state
          return(
              <div>
-                 
-                 <h1>Оставьте свой отзыв</h1>
-                 <FetbackButton options={this.state} incriment={this.incrimentFetback} />
+                 <SectionTitle state={this.state} incriment={this.incrimentFetback}/>
                  {(good > 0 || neutral > 0 || bad > 0) ? <div>
-                 <h2>Статистика</h2>
-                 <Statistic options={this.state} procentFetback={this.procentFetback}/></div> : null}
+                 <Statistic options={this.state} procentFetback={this.procentFetback}/></div> : <Notification message={'No feetback given'}/>}
              </div> 
          )
      }

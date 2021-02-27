@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './fetback.module.css';
 import propTypes from 'prop-types';
- const FetbackButton =  ({options, incriment}) => {
+ const FetbackOptions =  ({options, incriment}) => {
+
      const nameButton = Object.keys(options);
     
     return(
@@ -10,9 +11,9 @@ import propTypes from 'prop-types';
              onClick={() => incriment(button)}>{button}</button>)
      )
  }
- export default FetbackButton;
+ export default FetbackOptions;
 
- FetbackButton.propTypes ={
+ FetbackOptions.propTypes ={
   options: propTypes.objectOf(propTypes.number),
   incriment: propTypes.func.isRequired
  }
