@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Statistic from './Components/Statistic'
 import Notification from './Components/Notification'
 import SectionTitle from './Components/SectionTitle'
+import FetbackButton from './Components/FetbakOptions'
 
  class App extends Component{
     state = {
@@ -31,7 +32,9 @@ import SectionTitle from './Components/SectionTitle'
         const {good, neutral, bad} = this.state
          return(
              <div>
-                 <SectionTitle state={this.state} incriment={this.incrimentFetback}/>
+                 <SectionTitle title="Please leave feedback">
+                 <FetbackButton options={this.state} incriment={this.incrimentFetback} />
+                 </SectionTitle> 
                  {(good > 0 || neutral > 0 || bad > 0) ? <div>
                  <Statistic options={this.state} procentFetback={this.procentFetback}/></div> : <Notification message={'No feetback given'}/>}
              </div> 

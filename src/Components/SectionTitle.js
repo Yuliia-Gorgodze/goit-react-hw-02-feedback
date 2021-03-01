@@ -1,15 +1,14 @@
-import React from 'react';
-import FetbackButton from './FetbakOptions'
 
 
-const SectionTitle=  ({state, incriment}) => {
-    const {good, neutral, bad} = state
+function SectionTitle ({title, children}) {
+  
     return(
-     <section>
-         <h1>Оставьте свой отзыв</h1>
-         <FetbackButton options={state} incriment={incriment} />
-     </section>
-     )
- }
+        <section>
+            <h1>{title}</h1>
+            {children}
+        </section>
+        )
+  }  
+ 
  export default SectionTitle;
  

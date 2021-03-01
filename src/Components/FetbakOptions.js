@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './fetback.module.css';
 import propTypes from 'prop-types';
  const FetbackOptions =  ({options, incriment}) => {
+     console.log(incriment)
 
      const nameButton = Object.keys(options);
     
